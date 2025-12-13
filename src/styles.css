@@ -34,14 +34,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition-property: background-color;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in;
 }
 
 .cell.white {
-    background: #f0d9b5;
+    background-color: #f0d9b5;
 }
 
 .cell.black {
-    background: #b58863;
+    background-color: #b58863;
+}
+
+.cell.moving {
+    background-color: #638cb5;
+}
+
+.cell.possible {
+    background-color: #6eb563;
+}
+
+.cell.eat {
+    background-color: #b56363;
+
+}
+
+.cell.danger {
+    background-color: #ca2d2d;
 }
 
 .piece {
@@ -59,8 +79,59 @@ body {
 .piece.white {
     background: #fff;
 }
+
 .piece.black {
     background: #272727;
 }
 
+.piece.moving {
+    transition-property: margin;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.piece.vanishing {
+    animation: vanishing 0.3s forwards;
+}
+
+.winning {
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 35%;
+    height: 35%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.popup {
+    background: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 20%;
+    height: 12%;
+    position: absolute;
+    margin-top: 42%;
+    margin-left: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition-property: opacity;
+    transition-duration: 3s;
+    transition-timing-function: ease-in-out;
+}
+
+.content {
+    margin: 10px;
+    text-align: center;
+}
+
+@keyframes vanishing {
+    from {opacity: 1}
+    to {opacity: 0}
+}
 
